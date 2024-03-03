@@ -1,16 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import './compontents/CalculatorComponent'
-import CalculatorComponent from "./compontents/CalculatorComponent";
-import Header from "./compontents/HeaderComponent";
-import RequestedLoanSelector from "./compontents/RequestedLoanSelector";
-import BankList from "./compontents/BankListComponent";
-function App() {
-  return (
-    <div className="App">
-        <Header/>
-        <BankList/>
-    </div>
-  );
+import HeaderComponent from "./components/HeaderComponent";
+import BankList from "./components/BankListComponent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CalculatorComponent from "./components/CalculatorComponent";
+import RequestedLoanSelector from "./components/RequestedLoanSelector";
+import BankPage from "./pages/BankPage";
+
+const App = () => {
+    return (
+        <BrowserRouter>
+            <div>
+                <HeaderComponent />
+                <Routes>
+                    <Route path="/" element={<BankList/>} />
+                    <Route path="/bank/:bankName" element={<BankPage/>} />
+                </Routes>
+            </div>
+        </BrowserRouter>
+    );
 }
+
 export default App;

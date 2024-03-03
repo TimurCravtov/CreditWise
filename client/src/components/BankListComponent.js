@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 
 const BankList = () => {
     const [banks, setBanks] = useState([]);
@@ -8,11 +9,18 @@ const BankList = () => {
         fetchBanks();
     }, []);
 
+    const navigate = useNavigate();
+
+    const routeChange = (bank_name) =>{
+        let path = `/bank/${bank_name}`;
+        navigate(path);
+    }
+
     const fetchBanks = async () => {
         try {
             const response = await fetch('http://localhost:8080/api/banks');
             const data = await response.json();
-            setBanks(data.banks); // Обращаемся к массиву банков в объекте data
+            setBanks(data.banks);
         } catch (error) {
             console.error('Error fetching banks:', error);
         }
@@ -30,7 +38,9 @@ const BankList = () => {
                                 <h2 className="card-title">{bank.name}</h2>
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="btn-group">
-                                        <Link to={`/bank/${name}`} className="btn btn-sm btn-outline-secondary">View</Link>                                    </div>
+                                        {/* Instead of Router, use a Link */}
+                                        <Link to={`/bank/${bank.name}`} className="btn btn-sm btn-outline-secondary">View</Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +49,6 @@ const BankList = () => {
             </div>
         </div>
     );
-
 };
 
-export default BankList;
+export default BankList
