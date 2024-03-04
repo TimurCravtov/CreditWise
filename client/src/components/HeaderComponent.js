@@ -17,7 +17,7 @@ function Header() {
             <li className="nav-item"><a href="#" className="nav-link">Features</a></li>
             <li className="nav-item"><a href="#" className="nav-link">Pricing</a></li>
             <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">About</a></li>
+            <li className="nav-item"><a href="https://github.com/TimurCravtov/sda_individual" target="_blank" className="nav-link">About</a></li>
         </ul>
     </header>)
 }

@@ -4,9 +4,8 @@ import HeaderComponent from "./components/HeaderComponent";
 import BankList from "./components/BankListComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CalculatorComponent from "./components/CalculatorComponent";
-import RequestedLoanSelector from "./components/RequestedLoanSelector";
 import BankPage from "./pages/BankPage";
-
+import './static/global.css'
 const App = () => {
     return (
         <BrowserRouter>
