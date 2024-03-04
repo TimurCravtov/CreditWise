@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import creditwise_logo from '../static/creditwise_logo.png'
+import {Link} from "react-router-dom";
 
 function Header() {
     return (
@@ -13,7 +14,7 @@ function Header() {
         </a>
 
         <ul className="nav nav-pills">
-            <li className="nav-item"><a href="#" className="nav-link active" aria-current="page">Home</a></li>
+            <li className="nav-item"><Link to={`/`} className="nav-link active"> Home </Link> </li>
             <li className="nav-item"><a href="#" className="nav-link">Features</a></li>
             <li className="nav-item"><a href="#" className="nav-link">Pricing</a></li>
             <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>

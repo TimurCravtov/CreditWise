@@ -9,12 +9,22 @@
 .right {
     text-align: right;
 }
+.calculator-container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between; /* Распределение пространства между элементами */
+}
+
+.slider-containers {
+    display: flex;
+    flex-direction: column; /* Столбцовая ориентация для слайдеров */
+}
 
 .result-container {
     padding: 20px;
     background-color: #eff2f5;
     text-align: right;
-    width: 600px;
+    width: 50%;
 }
 
 .calculator-container {

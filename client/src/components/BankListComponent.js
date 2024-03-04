@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
+import '../static/bank-page.css'
 
 const BankList = () => {
     const [banks, setBanks] = useState([]);
@@ -27,13 +28,13 @@ const BankList = () => {
     };
 
     return (
-        <div>
-            <h1>Bank list</h1>
-            <div className="row">
+        <div style={{maxWidth:"100%", paddingLeft: "10px"}}>
+            <h1 align="center">Bank list</h1>
+            <div className="row" >
                 {banks.map((bank, index) => (
                     <div key={index} className="col-md-4 mb-4">
                         <div className="card">
-                            <img src={bank.logo_path} className="card-img-top" alt={bank.name} style={{ width: '100px', height: '100px', margin: 'auto' }} />
+                            <img src={bank.logo_path} className="card-img-top" alt={bank.name} style={{ maxWidth: '40%', maxHeight: '40%', margin: 'auto', padding:'20px'}} />
                             <div className="card-body">
                                 <h2 className="card-title">{bank.name}</h2>
                                 <div className="d-flex justify-content-between align-items-center">
@@ -49,6 +50,7 @@ const BankList = () => {
             </div>
         </div>
     );
+
 };
 
 export default BankList

@@ -64,7 +64,6 @@ const BankPage = () => {
                                 </button>
                             ))}
                         </div>
-
                         {selectedOffer && (
                             <Calculator offer={selectedOffer}/>
                         )}

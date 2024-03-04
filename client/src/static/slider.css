@@ -1,15 +1,27 @@
 .calculator-container {
-    width: 30%; /* Установите желаемую ширину контейнера калькулятора */
-    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Выравниваем элементы по вертикали */
+}
+
+.text-container {
+    flex: 1; /* Растягиваем контейнер текста на всю доступную ширину */
+}
+
+.slider-text-container {
+    flex: 1; /* Растягиваем контейнер слайдера на всю доступную ширину */
+    margin-left: 20px; /* Добавляем отступ слева от текста */
 }
 
 .slider-container {
-    margin-bottom: 20px; /* Добавим отступ снизу между ползунками */
+    width: 500px;
+    margin-bottom: 20px;
 }
 
 .slider {
     -webkit-appearance: none;
-    width: 100%; /* Ширина ползунка будет автоматически адаптироваться к ширине контейнера */
+    width: 100%; /* Ширина слайдера будет 100% от контейнера слайдера */
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -41,11 +53,8 @@
     cursor: pointer;
 }
 
-
-
 .slider-labels-small {
     color: rgba(0, 0, 0, 0.3);
-
     display: flex;
     justify-content: space-between;
 }

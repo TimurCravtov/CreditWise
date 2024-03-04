@@ -8,16 +8,26 @@
 #include <vector>
 
 int main() {
-
+    /*
+     * CREATING THE DATA BASE
+     */
     Bank maib(1, "MAIB", "https://play-lh.googleusercontent.com/bg-VhuZhJDnq8_RFolfEH1lDAUc0CYOggn61meBWTSx-dBdlG6EMbJnctc_vKwNd2PI");
     Bank micb(2, "MICB", "https://play-lh.googleusercontent.com/EgWN92o0GZGMo6WrziiMm9Mn96gGaUoE0sa3__sb80iZ3SitvIfU06fFcWFInXJlnw");
-    Bank ecb(3, "ECB", "https://stroyka.md/images/articles/logos/199.png");
-
+    Bank ecb(3, "ECB", "https://play-lh.googleusercontent.com/tz_HYqFsze-9Qg6KwhaPD32kKyvnTqR1O8Ks9fvwZTL3OCewfwm1aZMfP4k7E_migA=w480-h960");
+    Bank vb(4, "VICTORIABANK", "https://play-lh.googleusercontent.com/-xZ8xhoz_aJnQgfYWGj2OzZCKVwBI39H2kLSOiSifueL6NTeJjjMp_mWifY7AS_aLA");
+    maib.add_offer("Consumer credit", 1000, 400000, 1, 240, 11.3);
+    maib.add_offer("Another credit", 10000, 40000, 12, 100, 3.3);
+    maib.add_offer("Rassrochka", 100, 10000, 6 , 24, 0);
+    maib.add_offer("Aaaaaa", 1000, 200000, 6, 360, 5.5);
+    ecb.add_offer("R", 100, 1000000, 1, 12, 5.6);
+    micb.add_offer("Consumer", 1000, 100000, 6, 12, 11.09);
     std::vector<Bank> banks;
     banks.push_back(maib);
+    banks.push_back(vb);
     banks.push_back(micb);
     banks.push_back(ecb);
     crow::App<crow::CORSHandler> app;
+    // *****************************************************************************************************************
 
     auto& cors = app.get_middleware<crow::CORSHandler>();
     std::string data = "hello";
@@ -29,6 +39,7 @@ int main() {
             .origin("example.com")
             .prefix("/nocors")
             .ignore();
+
 
     CROW_ROUTE(app, "/api/banks")
             ([banks]() {
@@ -53,7 +64,6 @@ int main() {
                 return crow::json::wvalue();
             });
 
-    // Run the server on port 8080
     app.port(8080).run();
     return 0;
 

@@ -43,3 +43,18 @@
     flex: 1; /* Занимаем всё доступное пространство */
     padding-left: 20px; /* Внутренний отступ слева */
 }
+
+.calculator-container {
+    display: flex;
+    justify-content: space-between; /* Распределение пространства между элементами */
+    align-items: flex-start; /* Выравнивание элементов по верхнему краю */
+}
+
+.slider-containers {
+    display: flex;
+    flex-direction: column; /* Столбцовая ориентация для слайдеров */
+}
+
+.result-container {
+    /* При необходимости добавьте дополнительные стили */
+}
