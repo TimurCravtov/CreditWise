@@ -26,11 +26,10 @@ int main() {
     banks.push_back(vb);
     banks.push_back(micb);
     banks.push_back(ecb);
-    crow::App<crow::CORSHandler> app;
     // *****************************************************************************************************************
 
+    crow::App<crow::CORSHandler> app;
     auto& cors = app.get_middleware<crow::CORSHandler>();
-    std::string data = "hello";
     cors
             .global()
             .headers("X-Custom-Header", "Upgrade-Insecure-Requests")
@@ -63,6 +62,23 @@ int main() {
                 }
                 return crow::json::wvalue();
             });
+
+    CROW_ROUTE(app, "/api/calculate")
+            .methods("POST"_method)
+                    ([](const crow::request& req) {
+                        const auto& json = crow::json::load(req.body);
+                        crow::json::wvalue x;
+                        x["sum"] = "NaN";
+                        std::cout << json;
+                        if (!json) {
+                            return x;
+                        }
+                        int loanAmount = json["loanAmount"].i();
+                        int loanTerm = json["loanTerm"].i();
+                        std::string activeCredit = json["activeCredit"].s();
+                        x["sum"] = 5 + 5;
+                        return x;
+                    });
 
     app.port(8080).run();
     return 0;

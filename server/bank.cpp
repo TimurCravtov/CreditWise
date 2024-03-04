@@ -11,6 +11,7 @@ std::string Bank::get_logo() {return this->logo_path;}
 void Bank::add_offer(std::string loan_type, int min_requested, int max_requested, int min_term, int max_tem, float DAE) {
     this->offers.emplace_back(loan_type, min_requested, max_requested, min_term, max_tem, DAE);
 }
+
 crow::json::wvalue Bank::to_json() {
     crow::json::wvalue json;
     json["id"] = this->id;
