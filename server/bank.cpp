@@ -30,6 +30,7 @@ std::vector<Loan> Bank::get_offers() const {
 
 int Bank::get_offer_id(std::string offer) const {
     for (int i = 0; i < this->offers.size(); i++) {
+        std::cout << this->offers[0].get_loan_type() << " \n";
         if (this->offers[i].get_loan_type() == offer) return i;
     }
     return -1;

@@ -21,10 +21,11 @@ int main() {
     ecb.add_offer("R", 100, 1000000, 1, 12, 5.6);
     micb.add_offer("Consumer", 1000, 100000, 6, 12, 11.09);
     std::vector<Bank> banks;
+
     banks.push_back(maib);
-    banks.push_back(vb);
     banks.push_back(micb);
     banks.push_back(ecb);
+    banks.push_back(vb);
     // *****************************************************************************************************************
 
     crow::App<crow::CORSHandler> app;
@@ -68,6 +69,7 @@ int main() {
                         if (!json) {
                             return x;
                         }
+
 
                         // to debug !!!!!!!!!!!!!!!
                         long loan_amount = json["loanAmount"].d();
