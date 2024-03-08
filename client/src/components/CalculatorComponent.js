@@ -2,47 +2,43 @@ import React, { useState, useEffect } from 'react';
 import '../static/slider.css';
 import '../static/calculator-component.css';
 
-const Calculator = ({ offer }) => {
-    console.log(offer)
+const Calculator = ({ offer, bank }) => {
+    const [formData, setFormData] = useState({
+        loanAmount: 5000,
+        loanTerm: 12,
+        activeCredit: offer.type,
+        bankId: bank.id // Send bank ID directly from the props
+    });
 
-    const [loanAmount, setLoanAmount] = useState(5000);
-    const [loanTerm, setLoanTerm] = useState(12);
-    const [activeCredit, setActiveCredit] = useState(offer.type);
+    const [totalPayment, setTotalPayment] = useState(0);
+    const [monthPayment, setMonthPayment] = useState(0);
 
     useEffect(() => {
         if (offer) {
-            setActiveCredit(offer.type);
+            setFormData(prevState => ({
+                ...prevState,
+                activeCredit: offer.type,
+                loanAmount: Math.floor(offer.max_requested * 6 / 10),
+                loanTerm: Math.floor(offer.max_term * 3 / 10)
+            }));
         }
     }, [offer]);
 
     useEffect(() => {
         sendDataToBackend();
-    }, [loanAmount, loanTerm, offer.type]); // Include offer.loan_type in dependencies
+    }, [formData]);
 
-    const handleLoanAmountChange = (e) => {
-        setLoanAmount(parseInt(e.target.value));
-        setActiveCredit(offer.type);
-    };
-
-    const handleLoanTermChange = (e) => {
-        setLoanTerm(parseInt(e.target.value));
-        setActiveCredit(offer.type);
-    };
-
-    const handleCreditChange = (credit) => {
-        setActiveCredit(credit);
+    const handleInputChange = (field, value) => {
+        setFormData(prevState => ({
+            ...prevState,
+            [field]: value
+        }));
     };
 
     const sendDataToBackend = () => {
-        const data = {
-            loanAmount,
-            loanTerm,
-            activeCredit
-        };
-
         fetch('http://localhost:8080/api/calculate', {
             method: 'POST',
-            body: JSON.stringify(data)
+            body: JSON.stringify(formData)
         })
             .then(response => {
                 if (!response.ok) {
@@ -51,23 +47,25 @@ const Calculator = ({ offer }) => {
                 return response.json();
             })
             .then(data => {
-                console.log('Data sent successfully:', data);
+                setTotalPayment(data.totalPayment);
+                setMonthPayment(data.monthPayment);
             })
             .catch(error => {
-                console.error('Error sending data to backend:', error);
+                console.error('Error sending data:', error);
             });
     };
+
     return (
         <div className="calculator-container">
             <div className="slider-containers">
                 <div className="slider-container">
-                    <label htmlFor="loanAmount">Loan amount(${loanAmount})</label>
+                    <label htmlFor="loanAmount">Loan amount(${formData.loanAmount})</label>
                     <input
                         type="range"
                         min={offer.min_requested}
                         max={offer.max_requested}
-                        value={loanAmount}
-                        onChange={handleLoanAmountChange}
+                        value={formData.loanAmount}
+                        onChange={e => handleInputChange('loanAmount', parseInt(e.target.value))}
                         id="loanAmount"
                         className="slider"
                     />
@@ -78,13 +76,13 @@ const Calculator = ({ offer }) => {
                 </div>
 
                 <div className="slider-container">
-                    <label htmlFor="loanTerm">Loan term {loanTerm} months)</label>
+                    <label htmlFor="loanTerm">Loan term {formData.loanTerm} months)</label>
                     <input
                         type="range"
                         min={offer.min_term}
                         max={offer.max_term}
-                        value={loanTerm}
-                        onChange={handleLoanTermChange}
+                        value={formData.loanTerm}
+                        onChange={e => handleInputChange('loanTerm', parseInt(e.target.value))}
                         id="loanTerm"
                         className="slider"
                     />
@@ -96,10 +94,10 @@ const Calculator = ({ offer }) => {
             </div>
 
             <div className="result-container">
-                <h3>Total Payment (5)</h3>
+                <h3>Total Payment: {totalPayment}</h3>
+                <h3>Monthly Payment: {monthPayment}</h3>
             </div>
         </div>
-
     );
 };
 

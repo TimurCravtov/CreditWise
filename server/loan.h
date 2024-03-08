@@ -13,15 +13,11 @@ class Loan {
     std::string loan_type;
     int min_requested;
     int max_requested;
-    float DAE;
-    int term_in_month;
+    double DAE;
     int min_term;
     int max_term;
-
     // from user:
     float requested_amount;
-
-    Currency currency;
 
 public:
     Loan(std::string loan_type, int min_requested, int max_requested, int min_term, int max_tem, float DAE) :
@@ -32,19 +28,26 @@ public:
         max_term(max_tem),
         DAE(DAE)
     {}
-
+    double calculate_month_payment(long requested, long term) const {
+        double r = this-> DAE / 1200;
+        return r * requested / (1 - pow((1 + r) ,-term));
+    }
+    double calculate_total_payment(long requested, long term) const {
+        return term * calculate_month_payment(requested, term);
+    }
+    std::string get_loan_type() const {
+        return this->loan_type;
+    }
     crow::json::wvalue to_json() {
         crow::json::wvalue json;
         json["type"] = this->loan_type;
         json["min_requested"] = this->min_requested;
-         json["max_requested"] = this->max_requested;
-
+        json["max_requested"] = this->max_requested;
         json["min_term"] = this->min_term;
         json["max_term"] = this->max_term;
         json["DAE"] = this->DAE;
         return json;
     }
-
 };
 
 #endif

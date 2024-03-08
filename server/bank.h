@@ -9,6 +9,7 @@
 class Bank {
 
     int id;
+    int number_of_offers;
     std::string name;
     std::string logo_path;
     std::vector<Loan> offers;
@@ -19,6 +20,8 @@ public:
     std::string get_name();
     std::string get_logo();
     crow::json::wvalue to_json();
+    std::vector<Loan> get_offers() const;
+    int get_offer_id(std::string offer) const;
 };
 
 #endif //I2_BANK_H

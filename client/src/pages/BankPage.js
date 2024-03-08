@@ -58,14 +58,13 @@ const BankPage = () => {
                                     key={index}
                                     className={`btn btn-lg px-4 custom-button ${selectedOffer === offer ? 'active' : ''}`}
                                     type="button"
-                                    onClick={() => handleOfferChange(offer)}
-                                >
+                                    onClick={() => handleOfferChange(offer)}>
                                     {offer.type}
                                 </button>
                             ))}
                         </div>
                         {selectedOffer && (
-                            <Calculator offer={selectedOffer}/>
+                            <Calculator bank = {bank} offer={selectedOffer}/>
                         )}
                     </div>
                 </div>
