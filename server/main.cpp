@@ -15,17 +15,20 @@ int main() {
     Bank micb(2, "MICB", "https://play-lh.googleusercontent.com/EgWN92o0GZGMo6WrziiMm9Mn96gGaUoE0sa3__sb80iZ3SitvIfU06fFcWFInXJlnw");
     Bank ecb(3, "ECB", "https://play-lh.googleusercontent.com/tz_HYqFsze-9Qg6KwhaPD32kKyvnTqR1O8Ks9fvwZTL3OCewfwm1aZMfP4k7E_migA=w480-h960");
     Bank vb(4, "VICTORIABANK", "https://play-lh.googleusercontent.com/-xZ8xhoz_aJnQgfYWGj2OzZCKVwBI39H2kLSOiSifueL6NTeJjjMp_mWifY7AS_aLA");
-    maib.add_offer("Consumer credit", 1000, 400000, 1, 240, 11.3);
-    maib.add_offer("Another credit", 10000, 40000, 12, 100, 3.3);
-    maib.add_offer("Aaaaaa", 1000, 200000, 6, 360, 5.5);
+    maib.add_offer("Consumer credit", 1000, 350000, 12, 60, 11.3);
+    maib.add_offer("Credit de consum espresso", 5000, 40000, 12, 100, 10.20);
+    maib.add_offer("Credit ipotecar", 50000, 5000000, 6, 360, 8.08, 1);
     ecb.add_offer("R", 100, 1000000, 1, 12, 5.6);
     micb.add_offer("Consumer", 1000, 100000, 6, 12, 11.09);
+
+//    Bank grigg(5, "Gringotts Wizarding Bank", "https://ih1.redbubble.net/image.515859512.0401/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg");
     std::vector<Bank> banks;
 
     banks.push_back(maib);
     banks.push_back(micb);
     banks.push_back(ecb);
     banks.push_back(vb);
+//    banks.push_back(grigg);
     // *****************************************************************************************************************
 
     crow::App<crow::CORSHandler> app;
@@ -38,7 +41,6 @@ int main() {
             .origin("example.com")
             .prefix("/nocors")
             .ignore();
-
 
     CROW_ROUTE(app, "/api/banks")
             ([banks]() {
@@ -70,9 +72,7 @@ int main() {
                             return x;
                         }
 
-
-                        // to debug !!!!!!!!!!!!!!!
-                        long loan_amount = json["loanAmount"].d();
+                        double loan_amount = json["loanAmount"].d();
                         long loan_term = json["loanTerm"].d();
                         long bank_id = json["bankId"].d();
 

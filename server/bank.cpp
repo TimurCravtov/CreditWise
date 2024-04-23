@@ -4,12 +4,12 @@
 #include <crow.h>
 #include <vector>
 
-Bank::Bank(int id, std::string name, std::string logo_path) : id(id), name(std::move(name)), logo_path(std::move(logo_path)) {}
+Bank::Bank(unsigned long id, std::string name, std::string logo_path) : id(id), name(std::move(name)), logo_path(std::move(logo_path)) {}
 
 std::string Bank::get_name() {return this->name;}
 std::string Bank::get_logo() {return this->logo_path;}
-void Bank::add_offer(std::string loan_type, int min_requested, int max_requested, int min_term, int max_tem, float DAE) {
-    this->offers.emplace_back(loan_type, min_requested, max_requested, min_term, max_tem, DAE);
+void Bank::add_offer(std::string loan_type, unsigned long min_requested, unsigned long max_requested, unsigned long min_term, unsigned long max_tem, float DAE, int floating_percent) {
+    this->offers.emplace_back(loan_type, min_requested, max_requested, min_term, max_tem, DAE, floating_percent);
 }
 crow::json::wvalue Bank::to_json() {
     crow::json::wvalue json;
@@ -28,8 +28,8 @@ std::vector<Loan> Bank::get_offers() const {
     return this->offers;
 }
 
-int Bank::get_offer_id(std::string offer) const {
-    for (int i = 0; i < this->offers.size(); i++) {
+unsigned long Bank::get_offer_id(std::string offer) const {
+    for (unsigned long i = 0; i < this->offers.size(); i++) {
         std::cout << this->offers[0].get_loan_type() << " \n";
         if (this->offers[i].get_loan_type() == offer) return i;
     }

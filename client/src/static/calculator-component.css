@@ -9,15 +9,16 @@
 .right {
     text-align: right;
 }
+
 .calculator-container {
     width: 90%;
     display: flex;
-    justify-content: space-between; /* Распределение пространства между элементами */
+    justify-content: space-between; /* Distribute space between items */
 }
 
 .slider-containers {
     display: flex;
-    flex-direction: column; /* Столбцовая ориентация для слайдеров */
+    flex-direction: column; /* Column orientation for sliders */
 }
 
 .result-container {
@@ -27,9 +28,29 @@
     width: 50%;
 }
 
+.result-container .dae {
+    text-align: center; /* Center DAE */
+    margin-bottom: 10px; /* Add margin below DAE */
+    font-size: 14px; /* Smaller font size for DAE */
+}
+.result-container .payment-details {
+    text-align: right; /* Align payment details to the right */
+}
+
+.result-container .payment-details .payment-item {
+    margin-bottom: 10px; /* Add margin between payment items */
+}
+
+.result-container .payment-details .payment-value {
+    margin-left: 10px; /* Add margin between payment label and value */
+}
+
+.result-container .floating-percent {
+    text-align: right; /* Align floating percent note to the right */
+}
+
 .calculator-container {
     padding: 20px;
     display: flex;
     justify-content: space-between;
 }
-

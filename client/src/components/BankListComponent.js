@@ -34,7 +34,7 @@ const BankList = () => {
                 {banks.map((bank, index) => (
                     <div key={index} className="col-md-4 mb-4">
                         <div className="card">
-                            <img src={bank.logo_path} className="card-img-top" alt={bank.name} style={{ maxWidth: '40%', maxHeight: '40%', margin: 'auto', padding:'20px'}} />
+                            <img src={bank.logo_path} className="card-img-top" alt={bank.name} style={{ maxWidth: '40%', maxHeight: '190px', margin: 'auto', padding:'20px'}} />
                             <div className="card-body">
                                 <h2 className="card-title">{bank.name}</h2>
                                 <div className="d-flex justify-content-between align-items-center">

@@ -23,6 +23,7 @@ const BankPage = () => {
                 throw new Error('Failed to fetch bank');
             }
             const data = await response.json();
+            console.log(data)
             setBank(data);
             if (data.offers && data.offers.length > 0) {
                 setSelectedOffer(data.offers[0]); // Select the first offer by default

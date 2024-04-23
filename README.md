@@ -7,4 +7,4 @@ _The task was the following_: The solution must calculate the final price of som
 
 The solution used crow.h for server-side and React for client-side.
 
-Not all the banks are displayed, but not all the conditions are displayed as well.
+Not all the banks are disnplayed, but not all the conditions are displayed as well.

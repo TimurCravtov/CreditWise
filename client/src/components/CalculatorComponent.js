@@ -55,11 +55,15 @@ const Calculator = ({ offer, bank }) => {
             });
     };
 
+    const DAE_printer = () =>
+    {
+        return offer.floating_percent == 1? <h3 className="dae">Dae = {offer.DAE}%* </h3> : <h3 className="dae"> Dae = {offer.DAE}% </h3>
+    }
     return (
         <div className="calculator-container">
             <div className="slider-containers">
                 <div className="slider-container">
-                    <label htmlFor="loanAmount">Loan amount(${formData.loanAmount})</label>
+                    <label htmlFor="loanAmount">Loan amount({formData.loanAmount} Lei)</label>
                     <input
                         type="range"
                         min={offer.min_requested}
@@ -94,8 +98,10 @@ const Calculator = ({ offer, bank }) => {
             </div>
 
             <div className="result-container">
-                <h3>Total Payment: {totalPayment}</h3>
-                <h3>Monthly Payment: {monthPayment}</h3>
+                <DAE_printer/>
+                <h3>Total Payment: {Math.round(totalPayment*100)/100}</h3>
+                <h3>Monthly Payment: {Math.round(monthPayment*100)/100}</h3>
+                {offer?.floating_percent === 1 && <h3>*floating percent</h3>}
             </div>
         </div>
     );
