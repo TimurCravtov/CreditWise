@@ -20,15 +20,16 @@ int main() {
     maib.add_offer("Credit ipotecar", 50000, 5000000, 6, 360, 8.08, 1);
     ecb.add_offer("R", 100, 1000000, 1, 12, 5.6);
     micb.add_offer("Consumer", 1000, 100000, 6, 12, 11.09);
+    maib.add_offer("Credit prima casă", 30000, 800000, 6, 300, 8.03, 1);
 
-//    Bank grigg(5, "Gringotts Wizarding Bank", "https://ih1.redbubble.net/image.515859512.0401/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg");
+    micb.add_offer("Nevoi personale, fără gaj", 100000, 400000, 6, 60, 11.34);
+
     std::vector<Bank> banks;
 
     banks.push_back(maib);
     banks.push_back(micb);
     banks.push_back(ecb);
     banks.push_back(vb);
-//    banks.push_back(grigg);
     // *****************************************************************************************************************
 
     crow::App<crow::CORSHandler> app;
