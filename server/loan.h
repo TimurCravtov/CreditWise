@@ -22,6 +22,9 @@ public:
     double calculate_total_payment(long requested, long term) const;
     std::string get_loan_type() const;
     crow::json::wvalue to_json();
+
+    static std::vector<double> calculate_payment(long requested, long term, double DAE);
+
 };
 
 #endif

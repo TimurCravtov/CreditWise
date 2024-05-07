@@ -35,3 +35,10 @@ crow::json::wvalue Loan::to_json() {
     json["floating_percent"] = this->floating_percent;
     return json;
 }
+
+std::vector<double> Loan::calculate_payment(long requested, long term, double DAE) {
+    double r = DAE / 1200;
+    double M = r * requested / (1 - pow((1 + r) ,-term));
+    return std::vector<double> {M, term*M};
+}
+

@@ -5,6 +5,7 @@
 
 // ecosystem headers
 #include "bank.h"
+#include "loan.h"
 #include <vector>
 
 int main() {
@@ -32,6 +33,7 @@ int main() {
     banks.push_back(vb);
     // *****************************************************************************************************************
 
+    // cors fixing for being able to fetch data
     crow::App<crow::CORSHandler> app;
     auto& cors = app.get_middleware<crow::CORSHandler>();
     cors
@@ -43,6 +45,8 @@ int main() {
             .prefix("/nocors")
             .ignore();
 
+
+    // crow routes
     CROW_ROUTE(app, "/api/banks")
             ([banks]() {
                 crow::json::wvalue x;
@@ -85,6 +89,31 @@ int main() {
 
                         return x;
                     });
+
+    CROW_ROUTE(app, "/api/calculate/general")
+
+            .methods("POST"_method) ([banks](const crow::request& req) {
+
+                const auto& json = crow::json::load(req.body);
+                crow::json::wvalue x;
+                std::cout << json;
+                if (!json) {
+                    return x;
+                }
+
+                int loan_amount = json["loanAmount"].d();
+                long loan_term = json["loanTerm"].d();
+                long DAE = json["DAE"].d();
+
+                auto payment = Loan::calculate_payment(loan_amount, loan_term, DAE);
+                x["monthPayment"] = payment[0];
+                x["totalPayment"] = payment[1];
+
+                return x;
+
+    });
+
+    // running on port 8080
     app.port(8080).run();
     return 0;
 
