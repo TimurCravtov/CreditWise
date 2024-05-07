@@ -4,7 +4,7 @@
 > [!NOTE]
 > DSA project developed by FAF-231 student Timur Cravtov
 
-![CreditWise logo](/client/src/static/creditwise_logo.png "Text to show on mouseover").
+<img alt="CreditWise logo" height="200" src="client/src/static/creditwise_logo.png" title="Text to show on mouseover" width="auto"/>
 
 The purpose of this project work was to use the obtained knowledge of C/C++ programming at DSA course at university in order to develop a useful program/set of programs to solve a real-life problem
 

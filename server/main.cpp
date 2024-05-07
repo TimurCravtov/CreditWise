@@ -9,8 +9,13 @@
 #include <vector>
 
 int main() {
-    /*
-     * *********************************** CREATING THE DATA BASE **************************************************
+     /** CREATING THE DATA BASE
+     * <pre>
+     * I'm very sorry for it. I should have used a real database, but I have no idea how to implement it in crow.h
+     * <pre>
+     * I could have created a database.txt file, but that's worse, right?
+     * <pre>
+     * If you think my jokes are bad, have a look at my frontend code
      */
     Bank maib(1, "MAIB", "https://play-lh.googleusercontent.com/bg-VhuZhJDnq8_RFolfEH1lDAUc0CYOggn61meBWTSx-dBdlG6EMbJnctc_vKwNd2PI");
     Bank micb(2, "MICB", "https://play-lh.googleusercontent.com/EgWN92o0GZGMo6WrziiMm9Mn96gGaUoE0sa3__sb80iZ3SitvIfU06fFcWFInXJlnw");
