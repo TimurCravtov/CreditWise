@@ -1,5 +1,10 @@
+# CreditWise :: Spend you money wisely
+## An app for calculating credit for different banks in Moldova :md: 
+
 > [!NOTE]
 > DSA project developed by FAF-231 student Timur Cravtov
+
+![CreditWise logo](/client/src/static/creditwise_logo.png "Text to show on mouseover").
 
 The purpose of this project work was to use the obtained knowledge of C/C++ programming at DSA course at university in order to develop a useful program/set of programs to solve a real-life problem
 
