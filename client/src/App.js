@@ -8,6 +8,10 @@ import BankPage from "./pages/BankPage";
 import BanksPage from "./pages/BanksPage";
 import './static/global.css'
 import HomePage from "./pages/HomePage";
+import GeneralLoanPage from "./pages/GeneralLoanPage";
+
+
+
 const App = () => {
     return (
         <BrowserRouter>
@@ -17,6 +21,7 @@ const App = () => {
                     <Route path="/" element={<HomePage/>} />
                     <Route path="/banks" element={<BanksPage/>} />
                     <Route path="/bank/:bankName" element={<BankPage/>} />
+                    <Route path="/universalloan" element={<GeneralLoanPage/>} />
                 </Routes>
             </div>
         </BrowserRouter>

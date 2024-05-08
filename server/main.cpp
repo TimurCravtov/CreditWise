@@ -1,12 +1,13 @@
-// server-side headers
+#include <iostream>
+#include <vector>
 
+// backend headers
 #include "crow.h"
 #include "crow/middlewares/cors.h"
 
-// ecosystem headers
+// inner headers
 #include "bank.h"
 #include "loan.h"
-#include <vector>
 
 int main() {
      /** CREATING THE DATA BASE
