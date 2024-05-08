@@ -98,6 +98,9 @@ const Calculator = ({ offer, bank }) => {
             </div>
 
             <div className="result-container">
+
+                <h3> The offer </h3>
+
                 <DAE_printer/>
                 <h3>Total Payment: {Math.round(totalPayment*100)/100}</h3>
                 <h3>Monthly Payment: {Math.round(monthPayment*100)/100}</h3>

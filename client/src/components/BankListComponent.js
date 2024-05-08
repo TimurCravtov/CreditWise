@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 import '../static/bank-page.css'
-
+import backend from '../static/figura-backend.gif'
 const BankList = () => {
     const [banks, setBanks] = useState([]);
 
@@ -31,22 +31,26 @@ const BankList = () => {
         <div style={{maxWidth:"100%", paddingLeft: "10px"}}>
             <h1 align="center">Bank list</h1>
             <div className="row" >
-                {banks.map((bank, index) => (
-                    <div key={index} className="col-md-4 mb-4">
-                        <div className="card">
-                            <img src={bank.logo_path} className="card-img-top" alt={bank.name} style={{ maxWidth: '40%', maxHeight: '190px', margin: 'auto', padding:'20px'}} />
-                            <div className="card-body">
-                                <h2 className="card-title">{bank.name}</h2>
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <div className="btn-group">
-                                        {/* Instead of Router, use a Link */}
-                                        <Link to={`/bank/${bank.name}`} className="btn btn-sm btn-outline-secondary">View</Link>
+
+                {banks.length == 0 ? <div><img src={backend} width="400" height="auto" alt="Description of the image"/></div>
+                    :
+                    banks.map((bank, index) => (
+                        <div key={index} className="col-md-4 mb-4">
+                            <div className="card">
+                                <img src={bank.logo_path} className="card-img-top" alt={bank.name}
+                                     style={{maxWidth: '40%', maxHeight: '190px', margin: 'auto', padding: '20px'}}/>
+                                <div className="card-body">
+                                    <h2 className="card-title">{bank.name}</h2>
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <div className="btn-group">
+                                            <Link to={`/bank/${bank.name}`}
+                                                  className="btn btn-sm btn-outline-secondary">View</Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
             </div>
         </div>
     );

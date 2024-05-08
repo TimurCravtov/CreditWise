@@ -13,7 +13,7 @@ function Header() {
             </a>
 
             <ul style={{ display: 'flex', flexDirection: 'row', listStyle: 'none', margin: 0, padding: 0 }}>
-                <li style={{ marginRight: '1rem' }}><Link to={`/`} style={{ textDecoration: 'none', color: location.pathname === '/' ? '#fff' : '#000', padding: '0.5rem', borderRadius: '0.5rem', backgroundColor: location.pathname === '/' ? '#b12930' : '#f0f0f0', border: 'none' }}>Home</Link></li>
+                <li style={{ marginRight: '1rem' }}><Link to={`/`} style={{ textDecoration: 'none', color: location.pathname === '/' ? '#fff' : '#000', padding: '0.5rem', borderRadius: '0.5rem', backgroundColor: location.pathname === '/' ? '#6868ac' : '#f0f0f0', border: 'none' }}>Home</Link></li>
                 <li style={{ marginRight: '1rem' }}><a href="#" style={{ textDecoration: 'none', color: '#000', padding: '0.5rem', borderRadius: '0.5rem', backgroundColor: '#f0f0f0', border: '1px solid transparent' }}>Features</a></li>
                 <li style={{ marginRight: '1rem' }}><a href="#" style={{ textDecoration: 'none', color: '#000000', padding: '0.5rem', borderRadius: '0.5rem', backgroundColor: '#f0f0f0', border: '1px solid transparent' }}>Pricing</a></li>
                 <li style={{ marginRight: '1rem' }}><a href="#" style={{ textDecoration: 'none', color: '#000', padding: '0.5rem', borderRadius: '0.5rem', backgroundColor: '#f0f0f0', border: '1px solid transparent' }}>FAQs</a></li>

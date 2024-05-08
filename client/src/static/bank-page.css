@@ -1,37 +1,35 @@
 /* BankPage.css */
 .custom-button {
     font-size: inherit;
-    border-radius: 20px; /* Закругление краев */
-    transition: background-color 0.3s ease; /* Плавное изменение цвета */
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .custom-button.active {
-    background-color: #b12930; /* Цвет активной кнопки */
-    color: #fff; /* Цвет текста для активной кнопки */
+    background-color: #6868ac;
+    color: #fff;
 }
 
 .custom-button:not(.active) {
-    background-color: #e9ecef; /* Цвет неактивной кнопки */
-    color: #495057; /* Цвет текста для неактивной кнопки */
+    background-color: #e9ecef;
+    color: #495057;
 }
 
 /* BankPage.css */
 .calculator-container {
     width: 100%;
     height: 200px;
-    /*border: 1px solid #ccc; !* Тонкая рамка вокруг калькулятора *!*/
-    /*border-radius: 5px; !* Закругление углов рамки *!*/
-    padding: 20px; /* Внутренний отступ */
-    display: flex; /* Размещаем элементы в строку */
+    padding: 20px;
+    display: flex;
     justify-content: space-between;
 }
 
 .border {
     width: 100%;
     height: 400px;
-    border: 1px solid #ccc; /* Тонкая рамка вокруг калькулятора */
-    border-radius: 5px; /* Закругление углов рамки */
-    padding: 20px; /* Внутренний отступ */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .scale {

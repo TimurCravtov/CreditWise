@@ -106,7 +106,6 @@ int main() {
                 if (!json) {
                     return x;
                 }
-
                 int loan_amount = json["loanAmount"].d();
                 long loan_term = json["loanTerm"].d();
                 long DAE = json["DAE"].d();

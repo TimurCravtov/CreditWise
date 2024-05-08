@@ -7,6 +7,7 @@ const HomePage = () => {
         <div>
             <QuotePrinter/>
             <Link to="/banks">Go to banks page</Link> {/* Link to the other page */}
+            <Link to="/universalloan">Calculate an arbitrary credit</Link>
         </div>
     );
 }
