@@ -1,4 +1,4 @@
-# CreditWise :: Spend you money wisely
+# CreditWise :: Spend your money wisely
 ## An app for calculating credit for different banks in Moldova
 
 > [!NOTE]
