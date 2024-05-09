@@ -2,7 +2,7 @@
     width: 80%;
     margin: 0 auto;
     display: flex;
-    align-items: center; /* Выравниваем элементы по вертикали */
+    align-items: center;
 }
 
 .text-container {
@@ -10,8 +10,8 @@
 }
 
 .slider-text-container {
-    flex: 1; /* Растягиваем контейнер слайдера на всю доступную ширину */
-    margin-left: 20px; /* Добавляем отступ слева от текста */
+    flex: 1;
+    margin-left: 20px;
 }
 
 .slider-container {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import '../static/bank-page.css'
 import backend from '../static/figura-backend.gif'
 const BankList = () => {
@@ -32,7 +32,7 @@ const BankList = () => {
             <h1 align="center">Bank list</h1>
             <div className="row" >
 
-                {banks.length == 0 ? <div><img src={backend} width="400" height="auto" alt="Description of the image"/></div>
+                {banks.length === 0 ? <div><img src={backend} width="400" height="auto" alt="Description of the image"/></div>
                     :
                     banks.map((bank, index) => (
                         <div key={index} className="col-md-4 mb-4">
