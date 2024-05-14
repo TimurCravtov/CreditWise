@@ -10,14 +10,9 @@
 #include "loan.h"
 
 int main() {
-     /** CREATING THE DATA BASE
-     * <pre>
-     * I'm very sorry for it. I should have used a real database, but I have no idea how to implement it in crow.h
-     * <pre>
-     * I could have created a database.txt file, but that's worse, right?
-     * <pre>
-     * If you think my jokes are bad, have a look at my frontend code
-     */
+
+
+    /************************************** CREATING THE DATA BASE *****************************************************/
     Bank maib(1, "MAIB", "https://play-lh.googleusercontent.com/bg-VhuZhJDnq8_RFolfEH1lDAUc0CYOggn61meBWTSx-dBdlG6EMbJnctc_vKwNd2PI");
     Bank micb(2, "MICB", "https://play-lh.googleusercontent.com/EgWN92o0GZGMo6WrziiMm9Mn96gGaUoE0sa3__sb80iZ3SitvIfU06fFcWFInXJlnw");
     Bank ecb(3, "ECB", "https://play-lh.googleusercontent.com/tz_HYqFsze-9Qg6KwhaPD32kKyvnTqR1O8Ks9fvwZTL3OCewfwm1aZMfP4k7E_migA=w480-h960");
@@ -37,7 +32,8 @@ int main() {
     banks.push_back(micb);
     banks.push_back(ecb);
     banks.push_back(vb);
-    // *****************************************************************************************************************
+    // ************************************************************************************************************** //
+
 
     // cors fixing for being able to fetch data
     crow::App<crow::CORSHandler> app;
@@ -51,8 +47,9 @@ int main() {
             .prefix("/nocors")
             .ignore();
 
+    /* crow routes - the adresses backend serves */
 
-    // crow routes
+    // list of all banks
     CROW_ROUTE(app, "/api/banks")
             ([banks]() {
                 crow::json::wvalue x;
@@ -64,6 +61,8 @@ int main() {
                 return x;
             });
 
+
+    // for the bank page
     CROW_ROUTE(app, "/api/bank/<string>")
             ([banks](const std::string& bankName){
                 for (auto bank : banks) {
@@ -73,6 +72,8 @@ int main() {
                 }
                 return crow::json::wvalue();
             });
+
+    // takes loan amount and loan term for the given bank and offer and returns monthly and total payment
     CROW_ROUTE(app, "/api/calculate")
             .methods("POST"_method)
                     ([banks](const crow::request& req) {
@@ -96,6 +97,8 @@ int main() {
                         return x;
                     });
 
+
+    // takes interest rate, loan amount and term and returns monthly and total payment
     CROW_ROUTE(app, "/api/calculate/general")
 
             .methods("POST"_method) ([banks](const crow::request& req) {

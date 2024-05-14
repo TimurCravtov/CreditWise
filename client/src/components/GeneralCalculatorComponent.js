@@ -3,7 +3,7 @@ import '../static/slider.css';
 import '../static/calculator-component.css';
 
 const GeneralCalculator = () => {
-    const initialFormData = { DAE: 12.1, loanAmount: 10000, loanTerm: 100 };
+    const initialFormData = { DAE: 12.1, loanAmount: 100000, loanTerm: 100 };
 
     const [formData, setFormData] = useState(initialFormData);
     const [monthPayment, setMonthPayment] = useState(0);
@@ -35,7 +35,7 @@ const GeneralCalculator = () => {
 
     const handleInputChange = (field, value) => {
         setFormData({ ...formData, [field]: value });
-        console.log(formData)
+        // console.log(formData)
     };
 
     return (
@@ -56,24 +56,25 @@ const GeneralCalculator = () => {
                 </div>
 
                 <div className="input-item">
-                    <label htmlFor="loanAmount">Loan amount</label>
+                    <label htmlFor="loanAmount">Loan amount ({formData.loanAmount} MDL)</label>
                     <input
                         id="loanAmount"
                         type="range"
+                        defaultValue={1000000}
                         min={100}
-                        max={30000000}
+                        max={300000}
                         value={formData.loanAmount}
                         onChange={e => handleInputChange('loanAmount', parseInt(e.target.value))}
                         className="slider"
                     />
                     <div className="slider-labels-small">
                         <span>from 100</span>
-                        <span>up to 30000000</span>
+                        <span>up to 300000</span>
                     </div>
                 </div>
 
                 <div className="input-item">
-                    <label htmlFor="loanTerm">Loan term</label>
+                    <label htmlFor="loanTerm">Loan term ({formData.loanTerm} months)</label>
                     <input
                         id="loanTerm"
                         type="range"
@@ -91,8 +92,8 @@ const GeneralCalculator = () => {
             </div>
 
             <div className="result-container">
-                <h3>Total payment: {totalPayment}</h3>
-                <h3>Month payment: {monthPayment}</h3>
+                <h3 className="paymentgeneral">Total payment: <b>{Math.floor(totalPayment*100)/100} MDL</b></h3>
+                <h3 className="paymentgeneral">Month payment: <b>{Math.floor(monthPayment*100)/100} MDL</b></h3>
             </div>
         </div>
     );

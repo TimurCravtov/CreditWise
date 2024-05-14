@@ -11,28 +11,55 @@
 }
 
 .calculator-container {
+    padding: 20px;
     width: 90%;
     display: flex;
-    justify-content: space-between; /* Distribute space between items */
+    justify-content: space-between;
 }
 
 .slider-containers {
     display: flex;
-    flex-direction: column; /* Column orientation for sliders */
+    flex-direction: column;
 }
 
 .result-container {
     padding: 20px;
-    background-color: #eff2f5;
+    background-color: #dadaef;
     text-align: right;
-    width: 50%;
+    width: 45%; /* Adjust the width as needed */
+    height: 170px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
-.result-container .dae {
-    text-align: center; /* Center DAE */
-    margin-bottom: 10px; /* Add margin below DAE */
-    font-size: 14px; /* Smaller font size for DAE */
+.result-container-arbitrary {
+    padding: 20px;
+    background-color: #dadaef;
+    text-align: right;
+    width: 50%;
+    height: 250px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Horizontal offset, vertical offset, blur radius, and color */
 }
+
+
+.result-container .dae {
+    /*text-align: center; !* Center DAE *!*/
+    margin-bottom: 10px; /* Add margin below DAE */
+    font-size: 15px; /* Smaller font size for DAE */
+}
+
+.payment {
+    font-size: 18px;
+}
+
+.paymentgeneral {
+    font-size: 30px;
+}
+
+
+.floating-percent {
+    font-size: 16px;
+}
+
 .result-container .payment-details {
     text-align: right; /* Align payment details to the right */
 }
@@ -49,20 +76,11 @@
     text-align: right; /* Align floating percent note to the right */
 }
 
-.calculator-container {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
 .general-calculator-container {
     padding: 20px;
+    height: 200px;
     display: flex;
     justify-content: space-between;
-}
-
-.dae-container {
-
 }
 
 .input-container {
@@ -72,14 +90,9 @@
 }
 
 .input-item {
-    width: 300px;
+    width: 700px;
     margin-bottom: 20px; /* Add space between input items */
 }
-
-.result-container {
-    text-align: center; /* Center result content */
-}
-
 
 .spacer {
     margin-bottom: 20px; /* Adjust the margin as needed */

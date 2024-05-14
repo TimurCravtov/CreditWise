@@ -1,11 +1,9 @@
-#ifndef I2_LOAN_H
-#define I2_LOAN_H
+#ifndef LOAN_H
+#define LOAN_H
 
 #include <string>
 #include <utility>
 #include <crow.h>
-
-enum Currency {dollar, euro, lei};
 
 class Loan {
     std::string loan_type;
@@ -24,7 +22,6 @@ public:
     crow::json::wvalue to_json();
 
     static std::vector<double> calculate_payment(long requested, long term, double DAE);
-
 };
 
 #endif

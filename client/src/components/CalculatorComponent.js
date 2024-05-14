@@ -57,10 +57,11 @@ const Calculator = ({ offer, bank }) => {
 
     const DAE_printer = () =>
     {
-        return offer.floating_percent == 1? <h3 className="dae">Dae = {offer.DAE}%* </h3> : <h3 className="dae"> Dae = {offer.DAE}% </h3>
+        return offer.floating_percent == 1? <h3 className="dae">DAE = {offer.DAE}%* </h3> : <h3 className="dae"> DAE = {offer.DAE}% </h3>
     }
     return (
         <div className="calculator-container">
+
             <div className="slider-containers">
                 <div className="slider-container">
                     <label htmlFor="loanAmount">Loan amount({formData.loanAmount} Lei)</label>
@@ -78,7 +79,6 @@ const Calculator = ({ offer, bank }) => {
                         <span>up to {offer.max_requested}</span>
                     </div>
                 </div>
-
                 <div className="slider-container">
                     <label htmlFor="loanTerm">Loan term {formData.loanTerm} months)</label>
                     <input
@@ -96,18 +96,17 @@ const Calculator = ({ offer, bank }) => {
                     </div>
                 </div>
             </div>
-
             <div className="result-container">
-
                 <h3> The offer </h3>
-
                 <DAE_printer/>
-                <h3>Total Payment: {Math.round(totalPayment*100)/100}</h3>
-                <h3>Monthly Payment: {Math.round(monthPayment*100)/100}</h3>
-                {offer?.floating_percent === 1 && <h3>*floating percent</h3>}
+                <h3 className="payment">Total Payment: <b>{Math.round(totalPayment*100)/100} MDL</b></h3>
+                <h3 className="payment">Monthly Payment: <b>{Math.round(monthPayment*100)/100} MDL</b></h3>
+                {offer?.floating_percent === 1 && <h3 className="floating-percent"><i>*floating percent</i></h3>}
             </div>
         </div>
     );
+
+
 };
 
 export default Calculator;

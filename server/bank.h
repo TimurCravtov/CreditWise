@@ -1,5 +1,5 @@
-#ifndef I2_BANK_H
-#define I2_BANK_H
+#ifndef  BANK_H
+#define BANK_H
 #include <string>
 #include <utility>
 #include <vector>
@@ -9,7 +9,6 @@
 class Bank {
 
     unsigned long id;
-    unsigned long number_of_offers;
     std::string name;
     std::string logo_path;
     std::vector<Loan> offers;
@@ -24,4 +23,4 @@ public:
     unsigned long get_offer_id(std::string offer) const;
 };
 
-#endif //I2_BANK_H
+#endif //BANK_H

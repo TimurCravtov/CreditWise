@@ -41,32 +41,31 @@ const BankPage = () => {
 
     return (
         <div>
-            <h2>Bank Page</h2>
             {loading ? (
                 <p>Loading...</p>
             ) : bank ? (
                 <div>
+                    <p>{bank.name}</p>
                     <div>
-                        <p>Name: {bank.name}</p>
-                        <p>ID: {bank.id}</p>
-                        <img src={bank.logo_path} alt="Bank Logo" width={300}/>
-                    </div>
-
-                    <div className="border"> {/* Assuming 'border' is a variable for CSS class */}
-                        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                            {bank.offers.map((offer, index) => (
-                                <button
-                                    key={index}
-                                    className={`btn btn-lg px-4 custom-button ${selectedOffer === offer ? 'active' : ''}`}
-                                    type="button"
-                                    onClick={() => handleOfferChange(offer)}>
-                                    {offer.type}
-                                </button>
-                            ))}
+                        <div>
+                            <img src={bank.logo_path} alt="Bank Logo" width={300} />
                         </div>
-                        {selectedOffer && (
-                            <Calculator bank = {bank} offer={selectedOffer}/>
-                        )}
+                        <div className="border">
+                            <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                                {bank.offers.map((offer, index) => (
+                                    <button
+                                        key={index}
+                                        className={`btn btn-lg px-4 custom-button ${selectedOffer === offer ? 'active' : ''}`}
+                                        type="button"
+                                        onClick={() => handleOfferChange(offer)}>
+                                        {offer.type}
+                                    </button>
+                                ))}
+                            </div>
+                            {selectedOffer && (
+                                <Calculator bank={bank} offer={selectedOffer} />
+                            )}
+                        </div>
                     </div>
                 </div>
             ) : (

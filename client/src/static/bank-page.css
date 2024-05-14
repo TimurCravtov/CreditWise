@@ -56,3 +56,11 @@
 .result-container {
     /* При необходимости добавьте дополнительные стили */
 }
+
+.card {
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    background-color: #f2f2f2; /* Slightly gray background color */
+}
